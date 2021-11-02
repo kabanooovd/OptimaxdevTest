@@ -25,10 +25,6 @@ export const Cart = () => {
 
     const cartData = useSelector<MainStoreType, Array<apiResponseType & { quantity: number }>>(state => state.cart.cartData)
 
-        // const mappedCartList = cartData.map(el => (
-        //     <CartItem cartData={el} key={el.id}/>
-        // ))
-
     const mappedCartList = cartData.map(el => (
         <CartItem cartData={el} key={el.id}/>
     ))
@@ -39,8 +35,6 @@ export const Cart = () => {
         <div className={st.cartItemContainer}>
             <h1>Cart</h1>
             {mappedCartList}
-            {/*Cart lalalal*/}
-            {/*<CartItem data={cartData}/>*/}
         </div>
     )
 }
