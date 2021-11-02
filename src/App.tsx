@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux";
 import {getInitialDataThunk} from "./bll/itemsReducer";
 import {ItemsList} from "./Components/ItemsList/ItemsList";
 import {Preloader} from "./Components/Preloader/Preloader";
+import {MainWebStoreComponent} from "./Components/Main/MainWebStoreComponent";
 
 function App() {
 
@@ -16,9 +17,10 @@ function App() {
 
     return (
         <div className="App">
-            <Header />
-            <Preloader />
-            <ItemsList />
+            {/*<Header />*/}
+            {/*<Preloader />*/}
+            {/*<ItemsList />*/}
+            <MainWebStoreComponent />
         </div>
     );
 }

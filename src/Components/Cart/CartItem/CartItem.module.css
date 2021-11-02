@@ -1,0 +1,54 @@
+.cartItemWrapper {
+    border: 1px solid red;
+    padding: 10px;
+    display: flex;
+}
+
+.cartItemDataStyles {
+    border: 1px solid blue;
+    width: 100%;
+    /*height: 100%;*/
+}
+
+.itemPic {
+    width: 200px;
+}
+
+.cartPrice {
+    border: 1px solid blue;
+    width: 100%;
+}
+
+.cartTitle {
+    border: 1px solid blue;
+    width: 100%;
+}
+
+.cartQuantity {
+    border: 1px solid blue;
+    width: 100%;
+}
+
+.cartCategory {
+    border: 1px solid blue;
+    width: 100%;
+}
+
+.cartRating {
+    border: 1px solid blue;
+    width: 100%;
+}
+
+.quantityHandler {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.cartDescription {
+    border: 1px solid blue;
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: flex-end;
+}

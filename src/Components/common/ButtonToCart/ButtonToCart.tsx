@@ -15,7 +15,10 @@ export const ButtonToCart: React.ComponentType<{
     }
 
     return (
-        <button disabled={disabled} className={st.buttonStyles} onClick={onClickHandler}>
+        <button disabled={disabled}
+                className={st.buttonStyles}
+                onClick={onClickHandler}
+        >
             {buttonName}
         </button>
     )

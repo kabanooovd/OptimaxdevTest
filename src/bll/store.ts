@@ -9,7 +9,7 @@ export type MainStoreType = ReturnType<typeof RootReducer>
 export const RootReducer = combineReducers({
     items: itemsReducer,
     appState: appCommonDataReducer,
-    carts: cartsReducer,
+    cart: cartsReducer,
 })
 
 export const store = createStore(RootReducer, applyMiddleware(thunk))
