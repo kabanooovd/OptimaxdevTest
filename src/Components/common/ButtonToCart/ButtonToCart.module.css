@@ -1,0 +1,15 @@
+.buttonStyles {
+    border: 1px solid black;
+    width: 200px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    background-color: blue;
+    color: snow;
+    border-radius: 5px;
+}
+
+.buttonStyles:hover {
+    opacity: 0.5;
+}

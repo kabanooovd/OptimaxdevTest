@@ -1,0 +1,29 @@
+.itemWrapper {
+    border: 1px solid grey;
+    padding: 20px;
+    width: 250px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.item {
+    height: 100%;
+}
+
+.itemImage {
+    width: 200px;
+    max-height: 300px;
+}
+
+.category {
+    display: flex;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.ratings {
+    display: flex;
+    justify-content: space-between;
+}

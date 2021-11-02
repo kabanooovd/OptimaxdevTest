@@ -1,0 +1,12 @@
+.itemsListWrapper {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ItemContainer {
+    padding: 20px;
+    width: 298px;
+    min-height: 600px;
+}

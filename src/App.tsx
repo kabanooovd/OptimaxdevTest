@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect} from 'react';
 import './App.css';
+import {Header} from "./Components/Header/Header";
+import {useDispatch} from "react-redux";
+import {getInitialDataThunk} from "./bll/itemsReducer";
+import {ItemsList} from "./Components/ItemsList/ItemsList";
+import {Preloader} from "./Components/Preloader/Preloader";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getInitialDataThunk)
+    }, [])
+
+    return (
+        <div className="App">
+            <Header />
+            <Preloader />
+            <ItemsList />
+        </div>
+    );
 }
 
 export default App;
