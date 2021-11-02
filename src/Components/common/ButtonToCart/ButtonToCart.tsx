@@ -5,12 +5,17 @@ import st from './ButtonToCart.module.css'
 export const ButtonToCart: React.ComponentType<{
     buttonName: string
     disabled: boolean
+    addItem: () => void
 }> = props => {
 
-    const {buttonName, disabled} = props
+    const {buttonName, disabled, addItem} = props
+
+    const onClickHandler = () => {
+        addItem()
+    }
 
     return (
-        <button disabled={disabled} className={st.buttonStyles}>
+        <button disabled={disabled} className={st.buttonStyles} onClick={onClickHandler}>
             {buttonName}
         </button>
     )

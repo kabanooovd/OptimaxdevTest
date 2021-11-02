@@ -5,12 +5,13 @@ import {MainStoreType} from "../../bll/store";
 import {apiResponseType} from "../../dal/marketAPI";
 import {Item} from "../Item/Item";
 import {Paginator} from "../common/Paginator/Paginator";
+import {ItemsTypes} from "../../bll/itemsReducer";
 
 export const ItemsList = () => {
 
     const dispatch = useDispatch()
 
-    const items = useSelector<MainStoreType, apiResponseType[]>(state => state.items.items)
+    const items = useSelector<MainStoreType, ItemsTypes>(state => state.items.items)
 
     const [currentPage, setCurrentPage] = useState<number>(1)
     const itemsPerPage: number = 4

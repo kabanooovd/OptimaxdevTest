@@ -8,6 +8,7 @@
     background-color: blue;
     color: snow;
     border-radius: 5px;
+    position: relative;
 }
 
 .buttonStyles:hover {

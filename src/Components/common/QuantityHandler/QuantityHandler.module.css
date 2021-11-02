@@ -1,0 +1,30 @@
+.quantityWrapper {
+    border: 1px solid red;
+    background-color: black;
+    color: snow;
+    width: 200px;
+    height: 40px;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    z-index: 100;
+}
+
+.quantityRemote {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.remoteButtonStyles {
+    cursor: pointer;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantityDataStyles {
+    display: flex;
+    align-items: center;
+}
