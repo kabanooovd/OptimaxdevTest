@@ -7,6 +7,7 @@ import {setCurrentCartQuantity, setNewItem} from "../../bll/cartsReducer";
 import {QuantityHandler} from "../common/QuantityHandler/QuantityHandler";
 import {setCartFlag} from "../../bll/itemsReducer";
 import {MainStoreType} from "../../bll/store";
+import {Rating} from "../common/Rating/Rating";
 
 export const Item = ({itemData}: { itemData: apiResponseType & { cartFlag: boolean } }) => {
 
@@ -35,7 +36,7 @@ export const Item = ({itemData}: { itemData: apiResponseType & { cartFlag: boole
 
             </div>
             <div className={SingleItemStyle.ratings}>
-                <div>Rating: {itemData.rating.rate}</div>
+                <Rating rate={itemData.rating.rate}/>
                 <div>Votes: {itemData.rating.count}</div>
             </div>
             <div className={SingleItemStyle.category}>

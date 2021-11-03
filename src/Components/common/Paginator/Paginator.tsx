@@ -24,7 +24,12 @@ export const Paginator = ({
 
     return (
         <div className={s.paginationWrapper}>
-            <button onClick={prevPage} disabled={currentPage === 1}>Prev</button>
+            <button onClick={prevPage}
+                    disabled={currentPage === 1}
+                    className={s.paginationArrows}
+            >
+                &lsaquo;
+            </button>
             <div className={s.paginator}>
                 {
                     pageNumbers.map(el => (
@@ -37,7 +42,12 @@ export const Paginator = ({
                     ))
                 }
             </div>
-            <button onClick={nextPage} disabled={currentPage === pageNumbers.length}>Next</button>
+            <button onClick={nextPage}
+                    disabled={currentPage === pageNumbers.length}
+                    className={s.paginationArrows}
+            >
+                &rsaquo;
+            </button>
         </div>
     )
 }

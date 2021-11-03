@@ -1,0 +1,25 @@
+.FooterContainer {
+    margin-top: 30px;
+    background-color: #2a2929;
+    color: snow;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footerTitleStyles {
+    font-size: 50px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.emailStyle {
+    text-decoration: none;
+    color: yellow;
+}
+
+.emailStyle:hover {
+    opacity: 0.5;
+}

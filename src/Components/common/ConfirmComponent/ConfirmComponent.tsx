@@ -1,32 +1,37 @@
 import React from "react";
 import ConfirmationStyles from './ConfirmComponent.module.css'
 import {useDispatch} from "react-redux";
-// import {changeModalFlagMode, removeUser} from "../../../bll/users-reducer";
+import {changeItemsQuantity, removeInstance, setCurrentCartQuantity, switchRmFlag} from "../../../bll/cartsReducer";
+import {setCartFlag} from "../../../bll/itemsReducer";
 
 export const ConfirmComponent = ({
-    userID, setRmBtnDisabledMode
+    userID,
+    title,
 } : {
-    userID: string, setRmBtnDisabledMode: (rmBtnDisabledMode: boolean) => void
+    userID: number
+    title: string
 }) => {
 
     const dispatch = useDispatch()
 
     const onConfirmHandler = () => {
-        // dispatch(removeUser(userID))
-        // setRmBtnDisabledMode(false)
+        dispatch(removeInstance(userID))
+        dispatch(changeItemsQuantity(0, userID))
+        dispatch(switchRmFlag(false, userID))
+        dispatch(setCartFlag(false, userID))
+        dispatch(setCurrentCartQuantity(0))
     }
 
     const onRejectHandler = () => {
-        // dispatch(changeModalFlagMode(userID, false))
-        // setRmBtnDisabledMode(false)
+        dispatch(switchRmFlag(false, userID))
     }
 
     return (
         <div className={ConfirmationStyles.confirmationWrapper}>
-            <div>Вы уверены, что хотите удалить пользователя?</div>
+            <div>{title}</div>
             <div className={ConfirmationStyles.btnWrapper}>
-                <button onClick={onConfirmHandler}>Да</button>
-                <button onClick={onRejectHandler}>Нет</button>
+                <button onClick={onConfirmHandler}>Yes</button>
+                <button onClick={onRejectHandler}>No</button>
             </div>
 
         </div>

@@ -29,14 +29,16 @@ export const ItemsList = () => {
         <div className={itemsListStyles.itemsListWrapper}>
             {mappedItems}
         </div>
-            {
-                !isLoading &&
-                <Paginator itemsPerPage={itemsPerPage}
-                           totalItems={items.length}
-                           currentPage={currentPage}
-                           setCurrentPage={setCurrentPage}
-                />
-            }
+            <div className={itemsListStyles.PaginatorContainer}>
+                {
+                    !isLoading &&
+                    <Paginator itemsPerPage={itemsPerPage}
+                               totalItems={items.length}
+                               currentPage={currentPage}
+                               setCurrentPage={setCurrentPage}
+                    />
+                }
+            </div>
 
         </div>
     )

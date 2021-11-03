@@ -1,7 +1,10 @@
 .HeaderWrapper {
-    border: 1px solid red;
+    padding: 0 0 20px 20px;
+
+    background-color: #323232;
     width: 100%;
     min-height: 150px;
+    color: orange;
 }
 
 .headerMenu{

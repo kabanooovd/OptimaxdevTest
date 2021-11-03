@@ -5,8 +5,11 @@ import {Rating} from "../../common/Rating/Rating";
 import {useDispatch, useSelector} from "react-redux";
 import {MainStoreType} from "../../../bll/store";
 import {raiseItems, reduceItems} from "../../../utils/quntityHelper";
+import deleteIcon from './../../../assets/delete.png'
+import {switchRmFlag} from "../../../bll/cartsReducer";
+import {ConfirmComponent} from "../../common/ConfirmComponent/ConfirmComponent";
 
-export const CartItem: React.FC<{cartData: apiResponseType & { quantity: number }}> = (props) => {
+export const CartItem: React.FC<{cartData: apiResponseType & { quantity: number, rmFlag: boolean }}> = (props) => {
 
     const {cartData} = props
 
@@ -23,14 +26,24 @@ export const CartItem: React.FC<{cartData: apiResponseType & { quantity: number 
 
     const reduceQuantity = () => currentQuantity && reduceItems(dispatch, currentQuantity, cartData.id, cartItemsQuantity)
 
+    const removeItemHandler = () => {
+        dispatch(switchRmFlag(true, cartData.id))
+    }
+
     return (
         <div className={st.cartItemWrapper}>
-            <div>
+            <div className={st.cartItemPicWrapper}>
                 <img src={cartData.image} alt="" className={st.itemPic}/>
             </div>
             <div className={st.cartItemDataStyles} style={{position: 'relative'}}>
-                <div className={st.cartPrice}>
+                <div className={st.cartOptions}>
                     <h3>{cartData.price} $</h3>
+                    <div style={{position: 'relative'}}>
+                        {cartData.rmFlag && <ConfirmComponent userID={cartData.id} title={'Are you sure?'}/>}
+                        <div className={st.rmImageWrapper} onClick={removeItemHandler}>
+                            <img src={deleteIcon} alt="" className={st.rmImageStyle}/>
+                        </div>
+                    </div>
                 </div>
                 <div className={st.cartTitle}>
                     {cartData.title}

@@ -4,7 +4,7 @@
 }
 
 .cartWrapper {
-    background-color: black;
+    background-color: #323232;
     width: 60px;
     height: 60px;
     display: flex;
@@ -33,6 +33,5 @@
 }
 
 .cartWrapper:hover {
-    background-color: yellow;
-    border: 1px solid #dedddd;
+    background-color: orange;
 }

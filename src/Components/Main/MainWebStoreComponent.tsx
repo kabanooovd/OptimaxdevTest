@@ -2,6 +2,7 @@ import React from "react";
 import {Header} from "../Header/Header";
 import {Preloader} from "../Preloader/Preloader";
 import {Routes} from "../Routes/Routes";
+import {Footer} from "../Footer/Footer";
 
 export const MainWebStoreComponent = () => {
 
@@ -9,9 +10,8 @@ export const MainWebStoreComponent = () => {
         <>
             <Header />
             <Preloader />
-
             <Routes />
-            {/*<ItemsList />*/}
+            <Footer />
         </>
     )
 }
