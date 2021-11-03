@@ -2,18 +2,22 @@ import React from "react";
 import {apiResponseType} from "../../dal/marketAPI";
 import SingleItemStyle from './Item.module.css';
 import {ButtonToCart} from "../common/ButtonToCart/ButtonToCart";
-import {useDispatch} from "react-redux";
-import {setNewItem} from "../../bll/cartsReducer";
+import {useDispatch, useSelector} from "react-redux";
+import {setCurrentCartQuantity, setNewItem} from "../../bll/cartsReducer";
 import {QuantityHandler} from "../common/QuantityHandler/QuantityHandler";
 import {setCartFlag} from "../../bll/itemsReducer";
+import {MainStoreType} from "../../bll/store";
 
 export const Item = ({itemData}: { itemData: apiResponseType & { cartFlag: boolean } }) => {
 
     const dispatch = useDispatch()
 
+    const cartItemsQuantity = useSelector<MainStoreType, number>(state => state.cart.cartItemsQuantity)
+
     const addItemHandler = () => {
         dispatch(setNewItem(itemData, 1))
         dispatch(setCartFlag(true, itemData.id))
+        dispatch(setCurrentCartQuantity(cartItemsQuantity + 1))
     }
 
     return (

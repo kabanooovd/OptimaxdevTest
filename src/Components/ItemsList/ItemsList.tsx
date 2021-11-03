@@ -1,17 +1,15 @@
 import React, {useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import itemsListStyles from './ItemsList.module.css'
 import {MainStoreType} from "../../bll/store";
-import {apiResponseType} from "../../dal/marketAPI";
 import {Item} from "../Item/Item";
 import {Paginator} from "../common/Paginator/Paginator";
 import {ItemsTypes} from "../../bll/itemsReducer";
 
 export const ItemsList = () => {
 
-    const dispatch = useDispatch()
-
     const items = useSelector<MainStoreType, ItemsTypes>(state => state.items.items)
+    const isLoading = useSelector<MainStoreType, boolean>(state => state.appState.isLoading)
 
     const [currentPage, setCurrentPage] = useState<number>(1)
     const itemsPerPage: number = 4
@@ -31,11 +29,15 @@ export const ItemsList = () => {
         <div className={itemsListStyles.itemsListWrapper}>
             {mappedItems}
         </div>
-            <Paginator itemsPerPage={itemsPerPage}
-                       totalItems={items.length}
-                       currentPage={currentPage}
-                       setCurrentPage={setCurrentPage}
-            />
+            {
+                !isLoading &&
+                <Paginator itemsPerPage={itemsPerPage}
+                           totalItems={items.length}
+                           currentPage={currentPage}
+                           setCurrentPage={setCurrentPage}
+                />
+            }
+
         </div>
     )
 }

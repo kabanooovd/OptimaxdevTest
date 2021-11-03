@@ -1,0 +1,38 @@
+.cartContainer {
+    padding: 10px 20px 0 0;
+    display: flex;
+}
+
+.cartWrapper {
+    background-color: black;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    position: relative;
+}
+
+.cartImg {
+    width: 30px;
+}
+
+.cartItemsQuantity {
+    font-size: 12px;
+    background-color: yellowgreen;
+    color: snow;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: absolute;
+    right: 14px;
+}
+
+.cartWrapper:hover {
+    background-color: yellow;
+    border: 1px solid #dedddd;
+}

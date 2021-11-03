@@ -1,28 +1,16 @@
 import React from "react";
 
 export const Rating: React.FC<{ rate: number }> = props => {
-
     const {rate} = props
-
-    //let rate = 3.8;
-
-    let currentRating = Math.ceil(rate)
-
     const x = <>&#11088;</>
 
+    let currentRating = Math.ceil(rate)
     let arr = []
-
-    for (let i = 0; i < currentRating; i++) {
-        arr.push(x)
-    }
-
-    const mappedRating = arr.map(el => (
-        <span>{el}</span>
-    ))
+    for (let i = 0; i < currentRating; i++) arr.push(x)
 
     return(
         <div>
-            {mappedRating}
+            {arr.map((el, index) => <span key={index}>{el}</span>)}
         </div>
     )
 }

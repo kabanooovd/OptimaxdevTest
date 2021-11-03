@@ -27,6 +27,23 @@
 .cartQuantity {
     border: 1px solid blue;
     width: 100%;
+    display: flex;
+}
+
+.arrowStyles {
+    background-color: yellow;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0 5px 0 5px;
+}
+.arrowStyles:hover {
+    border: 1px solid black;
+    opacity: 0.5;
 }
 
 .cartCategory {

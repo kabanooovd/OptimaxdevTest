@@ -3,8 +3,7 @@ import st from './QuantityHandler.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {MainStoreType} from "../../../bll/store";
 import {apiResponseType} from "../../../dal/marketAPI";
-import {raiseItemsQuantity, removeInstance} from "../../../bll/cartsReducer";
-import {setCartFlag} from "../../../bll/itemsReducer";
+import {raiseItems, reduceItems} from "../../../utils/quntityHelper";
 
 export const QuantityHandler = ({itemID}: { itemID: number }) => {
 
@@ -13,24 +12,13 @@ export const QuantityHandler = ({itemID}: { itemID: number }) => {
     const quantity = useSelector<MainStoreType, Array<apiResponseType & { quantity: number }>>
     (state => state.cart.cartData).find(el => el.id === itemID)
 
+    const cartItemsQuantity = useSelector<MainStoreType, number>(state => state.cart.cartItemsQuantity)
+
     const currentQuantity = quantity && quantity.quantity
 
+    const raiseQuantity = () => currentQuantity && raiseItems(currentQuantity, itemID, cartItemsQuantity, dispatch)
 
-    const raiseQuantity = () => {
-        if (currentQuantity) {
-            dispatch(raiseItemsQuantity(currentQuantity + 1, itemID))
-        }
-    }
-
-    const reduceQuantity = () => {
-        if (currentQuantity) {
-            dispatch(raiseItemsQuantity(currentQuantity - 1, itemID))
-        }
-        if (currentQuantity === 1) {
-            dispatch(setCartFlag(false, itemID))
-            dispatch(removeInstance(itemID))
-        }
-    }
+    const reduceQuantity = () => currentQuantity && reduceItems(dispatch, currentQuantity, itemID, cartItemsQuantity)
 
     return (
         <div className={st.quantityWrapper}>
