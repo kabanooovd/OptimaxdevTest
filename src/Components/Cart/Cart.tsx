@@ -4,6 +4,7 @@ import {useSelector} from "react-redux";
 import {MainStoreType} from "../../bll/store";
 import {apiResponseType} from "../../dal/marketAPI";
 import st from './Cart.module.css'
+import {EmptyCart} from "./EmptyCart/EmptyCart";
 
 export const Cart = () => {
 
@@ -12,6 +13,10 @@ export const Cart = () => {
     const mappedCartList = cartData.map(el => (
         <CartItem cartData={el} key={el.id}/>
     ))
+
+    if (cartData.length === 0) {
+        return <EmptyCart />
+    }
 
 
 
