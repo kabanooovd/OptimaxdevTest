@@ -1,24 +1,27 @@
 import React from "react";
 import ConfirmationStyles from './ConfirmComponent.module.css'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {changeItemsQuantity, removeInstance, setCurrentCartQuantity, switchRmFlag} from "../../../bll/cartsReducer";
 import {setCartFlag} from "../../../bll/itemsReducer";
 import {UniversalButton} from "../UniversalButton/UniversalButton";
+import {MainStoreType} from "../../../bll/store";
 
 export const ConfirmComponent = ({
-    userID, title,
+    userID, title, currentQuantity
 } : {
-    userID: number, title: string
+    userID: number, title: string, currentQuantity: number
 }) => {
 
     const dispatch = useDispatch()
+
+    const cartItemsQuantity = useSelector<MainStoreType, number>(state => state.cart.cartItemsQuantity)
 
     const onConfirmHandler = () => {
         dispatch(removeInstance(userID))
         dispatch(changeItemsQuantity(0, userID))
         dispatch(switchRmFlag(false, userID))
         dispatch(setCartFlag(false, userID))
-        dispatch(setCurrentCartQuantity(0))
+        dispatch(setCurrentCartQuantity(cartItemsQuantity - currentQuantity))
     }
 
     const onRejectHandler = () => {

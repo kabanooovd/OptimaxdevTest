@@ -20,7 +20,7 @@ export const CartItem: React.FC<{cartData: apiResponseType & { quantity: number,
 
     const paymentFlag = useSelector<MainStoreType, boolean>(state => state.appState.paymentFlag)
 
-    const currentQuantity = quantity && quantity.quantity
+    const currentQuantity = quantity ? quantity.quantity : 0
 
     const cartItemsQuantity = useSelector<MainStoreType, number>(state => state.cart.cartItemsQuantity)
 
@@ -43,7 +43,10 @@ export const CartItem: React.FC<{cartData: apiResponseType & { quantity: number,
                 <div className={st.cartOptions}>
                     <h3>{cartData.price} $</h3>
                     <div style={{position: 'relative'}}>
-                        {cartData.rmFlag && <ConfirmComponent userID={cartData.id} title={'Are you sure?'}/>}
+                        {cartData.rmFlag && <ConfirmComponent userID={cartData.id}
+                                                              title={'Are you sure?'}
+                                                              currentQuantity={currentQuantity}
+                        />}
                         <div className={removeCartItemStyles} onClick={removeItemHandler}>
                             <img src={deleteIcon} alt="" className={st.rmImageStyle}/>
                         </div>
