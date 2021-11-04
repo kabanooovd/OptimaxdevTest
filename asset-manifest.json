@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/OptimaxdevTest/static/css/main.7dfcdfb9.chunk.css",
+    "main.js": "/OptimaxdevTest/static/js/main.2f259ec2.chunk.js",
+    "main.js.map": "/OptimaxdevTest/static/js/main.2f259ec2.chunk.js.map",
+    "runtime-main.js": "/OptimaxdevTest/static/js/runtime-main.581c5c5f.js",
+    "runtime-main.js.map": "/OptimaxdevTest/static/js/runtime-main.581c5c5f.js.map",
+    "static/js/2.2698df88.chunk.js": "/OptimaxdevTest/static/js/2.2698df88.chunk.js",
+    "static/js/2.2698df88.chunk.js.map": "/OptimaxdevTest/static/js/2.2698df88.chunk.js.map",
+    "static/js/3.e539bdb9.chunk.js": "/OptimaxdevTest/static/js/3.e539bdb9.chunk.js",
+    "static/js/3.e539bdb9.chunk.js.map": "/OptimaxdevTest/static/js/3.e539bdb9.chunk.js.map",
+    "index.html": "/OptimaxdevTest/index.html",
+    "static/css/main.7dfcdfb9.chunk.css.map": "/OptimaxdevTest/static/css/main.7dfcdfb9.chunk.css.map",
+    "static/js/2.2698df88.chunk.js.LICENSE.txt": "/OptimaxdevTest/static/js/2.2698df88.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.581c5c5f.js",
+    "static/js/2.2698df88.chunk.js",
+    "static/css/main.7dfcdfb9.chunk.css",
+    "static/js/main.2f259ec2.chunk.js"
+  ]
+}
