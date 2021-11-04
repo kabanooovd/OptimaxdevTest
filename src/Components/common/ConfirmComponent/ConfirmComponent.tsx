@@ -3,13 +3,12 @@ import ConfirmationStyles from './ConfirmComponent.module.css'
 import {useDispatch} from "react-redux";
 import {changeItemsQuantity, removeInstance, setCurrentCartQuantity, switchRmFlag} from "../../../bll/cartsReducer";
 import {setCartFlag} from "../../../bll/itemsReducer";
+import {UniversalButton} from "../UniversalButton/UniversalButton";
 
 export const ConfirmComponent = ({
-    userID,
-    title,
+    userID, title,
 } : {
-    userID: number
-    title: string
+    userID: number, title: string
 }) => {
 
     const dispatch = useDispatch()
@@ -30,8 +29,14 @@ export const ConfirmComponent = ({
         <div className={ConfirmationStyles.confirmationWrapper}>
             <div>{title}</div>
             <div className={ConfirmationStyles.btnWrapper}>
-                <button onClick={onConfirmHandler}>Yes</button>
-                <button onClick={onRejectHandler}>No</button>
+                <UniversalButton title={'Yes'} width={'50px'} height={'20px'}
+                                 color={'snow'} backgroundColor={'blue'} borderRadius={'3px'}
+                                 onClick={onConfirmHandler}
+                />
+                <UniversalButton title={'No'} width={'50px'} height={'20px'}
+                                 color={'snow'} backgroundColor={'blue'} borderRadius={'3px'}
+                                 onClick={onRejectHandler}
+                />
             </div>
 
         </div>

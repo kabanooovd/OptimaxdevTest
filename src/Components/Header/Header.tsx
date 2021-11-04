@@ -4,15 +4,21 @@ import {SelfPrintingString} from "../common/SelfPrintingString/SelfPrintingStrin
 import {CartButton} from "../common/CartButton/CartButton";
 import { Link } from "react-router-dom";
 import {Path} from "../Routes/Routes";
+import {useSelector} from "react-redux";
+import {MainStoreType} from "../../bll/store";
 
 
 export const Header = () => {
+
+    const paymentFlag = useSelector<MainStoreType, boolean>(state => state.appState.paymentFlag)
+
+    const cartLinkStyles = !paymentFlag? '' : HeaderStyles.cartDisabledMode
 
     return (
         <div className={HeaderStyles.HeaderWrapper}>
             <div className={HeaderStyles.headerMenu}>
                 <h1>Store Project</h1>
-                <Link to={Path.CART}>
+                <Link to={Path.CART} className={cartLinkStyles}>
                     <CartButton />
                 </Link>
             </div>

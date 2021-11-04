@@ -24,7 +24,7 @@ export const Item = ({itemData}: { itemData: apiResponseType & { cartFlag: boole
     return (
         <div className={SingleItemStyle.itemWrapper}>
             <div className={SingleItemStyle.item}>
-                <div>
+                <div className={SingleItemStyle.priceWrapper}>
                     <h3>{itemData.price}$</h3>
                 </div>
                 <div>
@@ -42,7 +42,7 @@ export const Item = ({itemData}: { itemData: apiResponseType & { cartFlag: boole
             <div className={SingleItemStyle.category}>
                 {itemData.category}
             </div>
-            <div style={{position: 'relative'}}>
+            <div className={SingleItemStyle.buttonToCartPosition}>
                 {itemData.cartFlag && <QuantityHandler itemID={itemData.id}/>}
                 <ButtonToCart buttonName={'TO CART'}
                               disabled={false}

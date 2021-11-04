@@ -7,6 +7,7 @@ export const UniversalButton: React.FC<{
     color: string
     backgroundColor: string
     borderRadius: string
+    onClick?: () => void
 }> = props => {
 
     const {
@@ -16,6 +17,7 @@ export const UniversalButton: React.FC<{
         borderRadius,
         color,
         backgroundColor,
+        onClick,
     } = props
 
     const StylesForUniversalButton: any = {
@@ -31,7 +33,7 @@ export const UniversalButton: React.FC<{
     }
 
     return(
-        <div style={StylesForUniversalButton}>
+        <div style={StylesForUniversalButton} onClick={onClick}>
             {title}
         </div>
     )

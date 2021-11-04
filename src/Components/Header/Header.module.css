@@ -11,3 +11,8 @@
     display: flex;
     justify-content: space-between;
 }
+
+.cartDisabledMode {
+    pointer-events: none;
+    opacity: 0.4;
+}

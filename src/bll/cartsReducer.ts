@@ -5,6 +5,7 @@ const RAISE_ITEMS_QUANTITY = 'carts/RAISE_ITEMS_QUANTITY'
 const REMOVE_ITEM_FROM_CARD = 'carts/REMOVE_ITEM_FROM_CARD'
 const SET_ALL_CART_QUANTITY = 'carts/SET_ALL_CART_QUANTITY'
 const SWITCH_RM_FLAG = 'carts/SWITCH_RM_FLAG'
+const REFRESH_CART_DATA = 'carts/REFRESH_CART_DATA'
 
 
 export type CartsReducerTypes = {
@@ -22,7 +23,9 @@ export const cartsReducer = (state: CartsReducerTypes = initState, action: Carts
         case SET_NAW_ITEM:
             return {
                 ...state,
-                cartData: [{...action.item, quantity: action.quantity, rmFlag: false}, ...state.cartData]
+                cartData: [
+                    {...action.item, quantity: action.quantity, rmFlag: false}, ...state.cartData
+                ]
             }
         case RAISE_ITEMS_QUANTITY:
             return {...state, cartData: state.cartData
@@ -36,9 +39,13 @@ export const cartsReducer = (state: CartsReducerTypes = initState, action: Carts
         case SWITCH_RM_FLAG:
             return {...state, cartData: state.cartData
                     .map(el => el.id === action.id ? {...el, rmFlag: action.rmFlag} : el)}
+        case REFRESH_CART_DATA:
+            return {...state, cartData: [], cartItemsQuantity: 0}
         default: return state
     }
 }
+
+export type RefreshCartData_T = {type: 'carts/REFRESH_CART_DATA'}
 
 export type SwitchRmFlag_T = ReturnType<typeof switchRmFlag>
 export const switchRmFlag = (rmFlag: boolean, id: number) => {
@@ -70,3 +77,4 @@ type CartsActionsType = SetNewItem_T
     | RemoveInstance_T
     | SetCurrentCartQuantity_T
     | SwitchRmFlag_T
+    | RefreshCartData_T

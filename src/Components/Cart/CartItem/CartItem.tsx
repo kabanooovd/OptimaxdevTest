@@ -18,6 +18,8 @@ export const CartItem: React.FC<{cartData: apiResponseType & { quantity: number,
     const quantity = useSelector<MainStoreType, Array<apiResponseType & { quantity: number }>>
     (state => state.cart.cartData).find(el => el.id === cartData.id)
 
+    const paymentFlag = useSelector<MainStoreType, boolean>(state => state.appState.paymentFlag)
+
     const currentQuantity = quantity && quantity.quantity
 
     const cartItemsQuantity = useSelector<MainStoreType, number>(state => state.cart.cartItemsQuantity)
@@ -26,9 +28,11 @@ export const CartItem: React.FC<{cartData: apiResponseType & { quantity: number,
 
     const reduceQuantity = () => currentQuantity && reduceItems(dispatch, currentQuantity, cartData.id, cartItemsQuantity)
 
-    const removeItemHandler = () => {
-        dispatch(switchRmFlag(true, cartData.id))
-    }
+    const removeItemHandler = () => dispatch(switchRmFlag(true, cartData.id))
+
+    const reduceButtonStyles = cartData.quantity > 1 ? st.arrowStyles : st.disabledArrow
+
+    const removeCartItemStyles = !paymentFlag ? st.rmImageWrapper : st.rmImageWrapperDisabled
 
     return (
         <div className={st.cartItemWrapper}>
@@ -40,7 +44,7 @@ export const CartItem: React.FC<{cartData: apiResponseType & { quantity: number,
                     <h3>{cartData.price} $</h3>
                     <div style={{position: 'relative'}}>
                         {cartData.rmFlag && <ConfirmComponent userID={cartData.id} title={'Are you sure?'}/>}
-                        <div className={st.rmImageWrapper} onClick={removeItemHandler}>
+                        <div className={removeCartItemStyles} onClick={removeItemHandler}>
                             <img src={deleteIcon} alt="" className={st.rmImageStyle}/>
                         </div>
                     </div>
@@ -49,9 +53,9 @@ export const CartItem: React.FC<{cartData: apiResponseType & { quantity: number,
                     {cartData.title}
                 </div>
                 <div className={st.cartQuantity}>
-                    <div className={st.arrowStyles} onClick={raiseQuantity}>&#x2191;</div>
+                    <div className={st.arrowStyles} onClick={raiseQuantity}>&#9650;</div>
                     {cartData.quantity} {cartData.quantity > 1 ? <span> - items</span> : <span> - item</span>}
-                    <div className={st.arrowStyles} onClick={reduceQuantity}>&#8595;</div>
+                    <div className={reduceButtonStyles} onClick={reduceQuantity}>&#9660;</div>
                 </div>
                 <div className={st.cartCategory}>
                     {cartData.category}
@@ -60,6 +64,7 @@ export const CartItem: React.FC<{cartData: apiResponseType & { quantity: number,
                     <Rating rate={cartData.rating.rate}/>
                 </div>
                 <div className={st.cartDescription}>
+                    <h4 className={st.descriptionHeaderSt}>Description: </h4>
                     {cartData.description}
                 </div>
             </div>

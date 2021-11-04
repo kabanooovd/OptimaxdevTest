@@ -8,6 +8,7 @@
     flex-direction: row;
     z-index: 100;
     border-radius: 5px;
+    right: 25px;
 }
 
 .quantityRemote {
