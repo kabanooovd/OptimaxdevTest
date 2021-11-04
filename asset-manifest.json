@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/OptimaxdevTest/static/css/main.7dfcdfb9.chunk.css",
-    "main.js": "/OptimaxdevTest/static/js/main.2f259ec2.chunk.js",
-    "main.js.map": "/OptimaxdevTest/static/js/main.2f259ec2.chunk.js.map",
+    "main.js": "/OptimaxdevTest/static/js/main.1153e93a.chunk.js",
+    "main.js.map": "/OptimaxdevTest/static/js/main.1153e93a.chunk.js.map",
     "runtime-main.js": "/OptimaxdevTest/static/js/runtime-main.581c5c5f.js",
     "runtime-main.js.map": "/OptimaxdevTest/static/js/runtime-main.581c5c5f.js.map",
     "static/js/2.2698df88.chunk.js": "/OptimaxdevTest/static/js/2.2698df88.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.581c5c5f.js",
     "static/js/2.2698df88.chunk.js",
     "static/css/main.7dfcdfb9.chunk.css",
-    "static/js/main.2f259ec2.chunk.js"
+    "static/js/main.1153e93a.chunk.js"
   ]
 }
